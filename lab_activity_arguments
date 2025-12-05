@@ -1,1 +1,59 @@
+#Part 1: Basic Function Arguments
+def describe_pet(animal_type, pet_name):
+    print(f"I have a {animal_type} whose name is {pet_name}.")
 
+print("Part 1: Basic Positional Calls")
+describe_pet("cat", "Whiskers")
+describe_pet("rabbit", "Hops")
+describe_pet("bird", "Sky")
+
+#Part 2: Positional vs Keyword Arguments
+
+print("\nPart 2: Positional vs Keyword")
+print("Call 1: Positional Arguments")
+describe_pet("fish", "Bubbles")
+
+print("Call 2: Keyword Arguments")
+describe_pet(pet_name="Shadow", animal_type="snake")
+
+def describe_pet_default(pet_name, animal_type="dog"):
+    print(f"I have a {animal_type} named {pet_name}.")
+
+#Part 3: Default Arguments
+print("\nPart 3: Default Arguments")
+print("Call 1 (Using Default):")
+describe_pet_default("Brownie")
+
+print("Call 2 (Overriding Default):")
+describe_pet_default("Nugget", "chicken")
+
+def order_drink(drink, size="medium", iced=False):
+    temp_status = "iced" if iced else "hot"
+    return f"Order Summary: A {size} {temp_status} {drink}."
+
+#Part 4: Creating Own Function
+print("\nPart 4: Create Own Function")
+print("Order 1 (Default):", order_drink("coffee"))
+print("Order 2 (Custom Size):", order_drink("chocolate", size="large"))
+print("Order 3 (Custom Size and Iced):", order_drink("milk tea", "small", iced=True))
+
+def compute(operation, num1, num2=1):
+    operation = operation.lower()
+
+    if operation == "add":
+        result = num1 + num2
+    elif operation == "multiply":
+        result = num1 * num2
+    elif operation == "subtract":
+        result = num1 - num2
+    else:
+        return "Invalid operation"
+        
+    return result
+#Part 5: Mini Challenge (Calculator)
+
+print("\n--- Part 5: Mini Challenge (Calculator) ---")
+print(f'Add (Positional): {compute("add", 5, 10)}')
+print(f'Multiply (Keyword): {compute("multiply", num1=3, num2=4)}')
+print(f'Subtract (Default): {compute("subtract", 20)}')
+print(f'Invalid Operation: {compute("divide", 10, 2)}')
